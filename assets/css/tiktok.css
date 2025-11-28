@@ -1,0 +1,111 @@
+/* TikTok-like video card styles */
+:root{
+  --tt-bg: #0f1720;
+  --tt-card: #0b0f12;
+  --tt-accent: #ff004f;
+  --tt-text: #e6eef2;
+}
+body .tiktok-section{
+  background: linear-gradient(180deg, rgba(15,23,32,1) 0%, rgba(7,10,12,1) 100%);
+  padding: 60px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.tiktok-wrapper{
+  width:360px;
+  max-width:92vw;
+  height:640px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.tiktok-card{
+  position:relative;
+  width:100%;
+  height:100%;
+  background:var(--tt-card);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 40px rgba(2,6,23,0.6);
+}
+.tiktok-video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  background:#000;
+}
+.tiktok-overlay{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+.tiktok-side{
+  position:absolute;
+  right:12px;
+  top:80px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  pointer-events:auto;
+}
+.tiktok-icon{
+  width:64px;
+  height:64px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:var(--tt-text);
+  font-size:13px;
+}
+.tiktok-icon img{width:38px;height:38px;}
+.tiktok-icon .count{margin-top:6px;color:var(--tt-text);font-size:12px}
+.tiktok-bottom{
+  position:absolute;
+  left:14px;
+  bottom:18px;
+  color:var(--tt-text);
+  pointer-events:auto;
+}
+.tiktok-bottom .user{
+  font-weight:700;
+  margin-bottom:6px;
+}
+.tiktok-bottom .caption{opacity:0.9;max-width:230px}
+.play-btn{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:20;
+  pointer-events:auto;
+  background:rgba(0,0,0,0.35);
+  color:var(--tt-text);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:8px 14px;
+  border-radius:20px;
+  font-weight:600;
+}
+.double-tap-heart{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) scale(0.8);
+  color:var(--tt-accent);
+  font-size:72px;
+  opacity:0;
+  transition:transform 300ms ease, opacity 300ms ease;
+  pointer-events:none;
+  text-shadow:0 6px 18px rgba(0,0,0,0.6);
+}
+.double-tap-heart.show{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+
+@media (max-width:420px){
+  .tiktok-wrapper{height:78vh}
+  .tiktok-bottom .caption{max-width:160px}
+}
